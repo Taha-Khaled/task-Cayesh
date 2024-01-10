@@ -4,8 +4,8 @@ import styles from "./awardsList.module.css";
 import NomineeCard from "../nomineeCard";
 import { Fragment, useEffect, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
-import { useDispatch } from "react-redux";
 import { setItems } from "../../features/items/itemsSlice";
+import { useAppDispatch } from "../../app/hooks";
 
 interface Category {
   id: number;
@@ -40,7 +40,7 @@ const AwardsList = () => {
       ?.nominees.find((item) => item.id === itemId);
   };
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(setItems({ items: data }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
