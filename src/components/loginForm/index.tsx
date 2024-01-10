@@ -66,12 +66,12 @@ const LoginForm = () => {
             fullWidth
             {...register("password", {
               required: "Password is Required",
-              minLength: { message: "password minmun length is 8", value: 8 },
               pattern: {
                 message:
                   "password must have at least one special character, one uppercase, one lowercase and one number (in any order)",
                 value: /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$/,
               },
+              minLength: { message: "password minium length is 8", value: 8 },
             })}
           />
           <Button type="submit" variant="contained">
