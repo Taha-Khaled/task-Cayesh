@@ -1,17 +1,21 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { configureStore } from "@reduxjs/toolkit";
+
+import { setupListeners } from "@reduxjs/toolkit/query";
+import { authSlice } from "../features/auth/authSlice";
+import { awardsApis } from "../services/apis/awardsApisSlice";
+import { itemsSlice } from "../features/items/itemsSlice";
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    auth: authSlice.reducer,
+    items: itemsSlice.reducer,
+    [awardsApis.reducerPath]: awardsApis.reducer,
   },
+
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(awardsApis.middleware),
 });
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
-export type AppThunk<ReturnType = void> = ThunkAction<
-  ReturnType,
-  RootState,
-  unknown,
-  Action<string>
->;
+setupListeners(store.dispatch);

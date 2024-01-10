@@ -1,0 +1,21 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: calc(100vw - 200px);
+  padding: 30px 100px;
+  background-color: #f1f1f1;
+  z-index: 10;
+}
+h2 {
+  text-transform: capitalize;
+  margin: 0;
+}
+@media screen and (max-width: 480px) {
+  .navbar {
+    width: calc(100vw - 60px);
+    padding: 30px 30px;
+  }
+}

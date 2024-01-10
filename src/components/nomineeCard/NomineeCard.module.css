@@ -1,0 +1,42 @@
+.holder {
+  width: 450px;
+  height: 300px;
+  background-color: #cfe2f3;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+@media screen and (max-width: 480px) {
+  .holder {
+    width: 80vw;
+  }
+}
+.holder:hover {
+  background-color: #34ac9c;
+}
+
+.selected {
+  background-color: #009b86;
+}
+
+.btn {
+  background-color: #34ac9c !important;
+}
+
+.btn:hover {
+  background-color: #009b86 !important;
+}
+
+.image {
+  border-radius: 100%;
+  border: 1px solid black;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
